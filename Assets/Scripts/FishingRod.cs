@@ -40,12 +40,14 @@ public class FishingRod : MonoBehaviour
         //Unsubscribe from the event
         FishingSystem.OnFishingEnd -= HandleFishingEnd;
         isCasted = false;
-        animator.SetTrigger("EndFishing");
     }
 
     public void HandleFishingEnd()
     {
         Destroy(baitReference);
+
+        isPulling = false;
+        animator.SetTrigger("EndFishing");
     }
  
     void Update()

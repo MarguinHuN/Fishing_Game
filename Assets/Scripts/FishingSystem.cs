@@ -30,6 +30,8 @@ public class FishingSystem : MonoBehaviour
 
     public static event Action OnFishingEnd;
 
+    public GameObject minigame;
+
     internal void StartFishing(WaterSource waterSource)
     {
         StartCoroutine(FishingCoroutine(waterSource));
@@ -63,6 +65,12 @@ public class FishingSystem : MonoBehaviour
         }
 
         Debug.LogWarning("Start Minigame");
+        StartMinigame();
+    }
+
+    private void StartMinigame()
+    {
+        minigame.SetActive(true);
     }
 
     public void SetHasPulled()
@@ -114,5 +122,19 @@ public class FishingSystem : MonoBehaviour
     {
         //Here we can define cases upon different water sources if we make some, but because there is only one water source in the game (which is hard coded), we only return the only list we've created
         return lakeFishList;
+    }
+
+    internal void EndMinigame(bool success)
+    {
+        minigame.gameObject.SetActive(false);
+
+        if (success)
+        {
+            EndFishing();
+        }
+        else
+        {
+            EndFishing();
+        }
     }
 }
