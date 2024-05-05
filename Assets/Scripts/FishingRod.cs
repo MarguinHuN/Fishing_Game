@@ -11,6 +11,8 @@ public class FishingRod : MonoBehaviour
     public bool isFishingAvailable;
     public bool isCasted;
     public bool isPulling;
+
+    public StaminaSystem stamina;
  
     Animator animator;
     public GameObject baitPrefab;
@@ -38,6 +40,7 @@ public class FishingRod : MonoBehaviour
         //Unsubscribe from the event
         FishingSystem.OnFishingEnd -= HandleFishingEnd;
         isCasted = false;
+        animator.SetTrigger("EndFishing");
     }
 
     public void HandleFishingEnd()
@@ -52,7 +55,7 @@ public class FishingRod : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, Mathf.Infinity))
         {
-            if (hit.collider.CompareTag("FishingArea"))
+            if (hit.collider.CompareTag("FishingArea") && stamina.Stamina >= stamina.CastCost)
             {
                 isFishingAvailable = true;
 
@@ -70,25 +73,6 @@ public class FishingRod : MonoBehaviour
         {
             isFishingAvailable = false;
         }
- 
-        // --- > IF USING ROPE < --- //
-        /*
-        if (isCasted || isPulling)  
-        {
-            if (start_of_rope  != null && start_of_rod != null && endof_of_rope != null)
-            {
-                start_of_rope.transform.position = start_of_rod.transform.position;
- 
-                if (baitPosition != null)
-                {
-                    endof_of_rope.transform.position = baitPosition.position;
-                }
-            }
-            else
-            {
-                Debug.Log("MISSING ROPE REFERENCES");
-            }
-        }*/ 
  
         if (isCasted && Input.GetMouseButtonDown(1) && FishingSystem.Instance.isThereABite) //only when there is a bite
         {

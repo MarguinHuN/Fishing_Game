@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fishName: Catfish
   worth: 300
-  probability: 30
+  probability: 15

@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fishName: NoBite
   worth: 0
-  probability: 33
+  probability: 20

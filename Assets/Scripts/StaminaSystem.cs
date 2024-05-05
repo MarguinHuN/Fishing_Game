@@ -31,21 +31,33 @@ public class StaminaSystem : MonoBehaviour
         {
             OnSitting();
         }
+        else
+        {
+            if (recharge != null)
+            {
+                Debug.Log("Stopping recharge");
+                StopCoroutine(recharge);
+                recharge = null;
+            }
+        }
     }
 
     private void OnCasting()
     {
         Debug.Log("The player have casted their bait, resulting in losing some stamina.");            
-        if (Stamina < 0) Stamina = 0; //not letting the stamina bar go beyond 0
-        if (Stamina == 0) fishingRod.isFishingAvailable = false; //checks if the stamina bar is depleted, then the fishing won't be available
+        
         Stamina -= CastCost;
+        if (Stamina < 0) Stamina = 0; //not letting the stamina bar go beyond 0
         StaminaBar.fillAmount = Stamina / MaxStamina; //decreases the staminabar's vertical length according to the stamina loss
     }
 
     private void OnSitting()
     {
-        if (recharge != null) StopCoroutine(recharge);
-        recharge = StartCoroutine(RechargeStamina());
+        if (recharge == null)
+        {
+            Debug.Log("Starting recharge");
+            recharge = StartCoroutine(RechargeStamina());
+        }
     }
 
     private IEnumerator RechargeStamina()

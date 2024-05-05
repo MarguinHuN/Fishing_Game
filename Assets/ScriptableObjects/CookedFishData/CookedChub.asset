@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3385b763180b0a44c86b41f0ccdae96d, type: 3}
-  m_Name: Chub
+  m_Script: {fileID: 11500000, guid: 38a89ee9d00b59b418053f0dc4385d30, type: 3}
+  m_Name: CookedChub
   m_EditorClassIdentifier: 
-  fishName: Chub
-  worth: 150
-  probability: 30
+  cookedFishName: CookedChub
+  cookedWorth: 0
+  staminaReFill: 0

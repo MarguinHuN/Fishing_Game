@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fishName: Carp
   worth: 100
-  probability: 70
+  probability: 10
