@@ -9,4 +9,6 @@ public class FishData : ScriptableObject
     public string fishName;
     public int worth; //How much money it gives from the merchant $
     public int probability; //Chance to catch this fish in percentage %
+    public GameObject fishModel;
+    public int cookedWorth; //How much money it gives from the merchant in cooked form $
 }

@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fishName: Trout
   worth: 450
-  probability: 30
+  probability: 18
+  fishModel: {fileID: 8747136385110521833, guid: 3d5c784f70077b8409c08ce0f401a5b0, type: 3}
+  cookedWorth: 518

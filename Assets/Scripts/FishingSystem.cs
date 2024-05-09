@@ -31,6 +31,11 @@ public class FishingSystem : MonoBehaviour
     public static event Action OnFishingEnd;
 
     public GameObject minigame;
+    public GameObject exclamationMark;
+    
+    private FishData storedFish;
+
+    [SerializeField] private Transform fishSpawnLocation;
 
     internal void StartFishing(WaterSource waterSource)
     {
@@ -42,6 +47,7 @@ public class FishingSystem : MonoBehaviour
         yield return new WaitForSeconds(5f);
 
         FishData fish = CalculateBite(waterSource);
+        storedFish = fish;
 
         if (fish.fishName == "NoBite")
         {
@@ -58,12 +64,14 @@ public class FishingSystem : MonoBehaviour
     IEnumerator StartFishStruggle(FishData fish)
     {
         isThereABite = true;
+        exclamationMark.SetActive(true);
 
         while (!hasPulled)
         {
             yield return null;
         }
 
+        exclamationMark.SetActive(false);
         Debug.LogWarning("Start Minigame");
         StartMinigame();
     }
@@ -130,11 +138,33 @@ public class FishingSystem : MonoBehaviour
 
         if (success)
         {
+            GameObject go;
+            Debug.LogWarning(storedFish.fishName + " caught!");
+            go = Instantiate(storedFish.fishModel, fishSpawnLocation.transform.position, transform.root.rotation, null);
+            ManageObject(go, true);
             EndFishing();
         }
         else
         {
+            Debug.LogWarning("Fish escaped!");
             EndFishing();
+        }
+    }
+
+    private void ManageObject(GameObject go, bool opt)
+    {
+        Rigidbody rb;
+        Collider col;
+        rb = go.GetComponent<Rigidbody>();
+        col = go.GetComponent<Collider>();
+        if(rb) {
+            rb.isKinematic = !opt;
+            rb.detectCollisions = opt;
+            rb.useGravity = opt;
+        }
+
+        if(col != null) {
+            col.enabled = opt;
         }
     }
 }

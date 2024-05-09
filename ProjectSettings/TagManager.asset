@@ -6,11 +6,12 @@ TagManager:
   tags:
   - FishingArea
   - PlasticChair
+  - Pickup
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - PickupMask
   - Water
   - UI
   - 

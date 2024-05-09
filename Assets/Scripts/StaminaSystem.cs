@@ -22,7 +22,7 @@ public class StaminaSystem : MonoBehaviour
 
     void Update()
     {
-        if (fishingRod.isCasted && Input.GetMouseButtonDown(0)) //checks if the player initiates a casting into the water, that way the stamina bar is only drained when the player throws in the bait
+        if (fishingRod.isFishingAvailable && Input.GetMouseButtonDown(0)) //checks if the player initiates a casting into the water, that way the stamina bar is only drained when the player throws in the bait
         {
             OnCasting();
         }

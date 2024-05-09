@@ -15,10 +15,7 @@ public class FishingRod : MonoBehaviour
     public StaminaSystem stamina;
  
     Animator animator;
-    public GameObject baitPrefab;
-    //public GameObject endof_of_rope;  // --- > IF USING ROPE
-    //public GameObject start_of_rope;   // --- > IF USING ROPE   
-    //public GameObject start_of_rod;    // --- > IF USING ROPE   
+    public GameObject baitPrefab; 
  
     Transform baitPosition;
 
@@ -40,12 +37,14 @@ public class FishingRod : MonoBehaviour
         //Unsubscribe from the event
         FishingSystem.OnFishingEnd -= HandleFishingEnd;
         isCasted = false;
+        isPulling = false;
     }
 
     public void HandleFishingEnd()
     {
         Destroy(baitReference);
 
+        isCasted = false;
         isPulling = false;
         animator.SetTrigger("EndFishing");
     }
@@ -101,7 +100,8 @@ public class FishingRod : MonoBehaviour
 
         // ---- > Start Fish Bite Logic
 
-        FishingSystem.Instance.StartFishing(WaterSource.Lake); //Hard coded fishing spot, when there are multiple resources of fish ponds/lakes, it needs a complex method of deciding which kind of pond/lake the player is looking at
+        FishingSystem.Instance.StartFishing(WaterSource.Lake);
+        //Hard coded fishing spot, when there are multiple resources of fish ponds/lakes, it needs a complex method of deciding which kind of pond/lake the player is looking at
     }
  
     private void PullRod()

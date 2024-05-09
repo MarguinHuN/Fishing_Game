@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: Carp
   m_EditorClassIdentifier: 
   fishName: Carp
-  worth: 100
+  worth: 500
   probability: 10
+  fishModel: {fileID: 1263174167867819922, guid: e5efcb5c36bfa5142affbfa13d08b23e, type: 3}
+  cookedWorth: 575
