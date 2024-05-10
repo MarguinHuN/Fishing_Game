@@ -151,7 +151,7 @@ public class FishingSystem : MonoBehaviour
         }
     }
 
-    private void ManageObject(GameObject go, bool opt)
+    private void ManageObject(GameObject go, bool opt) //this part of the PickUp script is necessary for managing the objects physical settings, when we instantiate it next to the player
     {
         Rigidbody rb;
         Collider col;

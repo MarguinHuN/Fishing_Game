@@ -17,3 +17,4 @@ MonoBehaviour:
   probability: 10
   fishModel: {fileID: 1263174167867819922, guid: e5efcb5c36bfa5142affbfa13d08b23e, type: 3}
   cookedWorth: 575
+  staminaRefill: 250

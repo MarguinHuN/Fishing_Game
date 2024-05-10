@@ -1,0 +1,27 @@
+OLVASS EL
+
+Ennek a dokumentumnak a feladata, hogy egyszerű lépésekből álló utasításokkal látja el a felhasználót, hogy a projektet a Unity fejlesztő és
+szerkesztő környezetébe importálhassa, illetve a játék program elindítását, ami a projekt fájljai között megtalálhatunk.
+
+Projekt importálása:
+
+- Telepítse fel a Unity Hub applikációt
+- Nyissa meg a Unity Hub-ot
+- Telepítse/Válassza ki a szerkesztő 2021.3.25f1 verziót
+- Kattintson az "Add" gombra, és keresse meg a projekt fő mappáját, válassza ki, és kattintson a "Mappaválasztás" gombra
+- Miután sikerült az importálás, kattintson a projekt nevére, a szerkesztő betölti a projekt fájljait és script-jeit, ez eltarthat egy ideig
+
+Program elindítása:
+- Menjen a program exe fájljához a következő szerint: Fishing_Game/Builds/Windows/64bit/Fishing Game.exe
+- Kattintson kétszer a "Fishing Game.exe"-re
+
+Játék bezárása:
+Ha ablakos módban van a játék
+- Nyomja meg az "Esc"-et
+- Húzza az egeret a jobb felső sarokhoz
+- Kattintson a piros "X"-re
+
+Ha teljes képernyős módban van a játék (játék indulásakor az "Alt" + "Enter" kombinációt nyomtuk le)
+- Nyomja meg az "Alt" + "Enter" kombinációt, hogy átváltson ablakos módra
+vagy
+- Nyomja meg az "Alt" + "F4" kombinációt, hogy bezárja a játékot

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,6 +14,7 @@ public class StaminaSystem : MonoBehaviour
     private Coroutine recharge;
 
     public FishingRod fishingRod;
+    public PickUp pickUp;
     public Chair chair;
 
     void Start()
@@ -40,6 +42,28 @@ public class StaminaSystem : MonoBehaviour
                 recharge = null;
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.F) && pickUp.CurrentObject)
+        {
+            Eat();
+        }
+    }
+
+    private void Eat()
+    {
+        FishController fishController = pickUp.CurrentObject.GetComponent<FishController>();
+        if(!fishController)
+        {
+            return;
+        }
+        if (fishController.isCooked)
+        {
+            Stamina += fishController.CookedFishRefill;
+            if (Stamina > MaxStamina) Stamina = MaxStamina;
+            StaminaBar.fillAmount = Stamina / MaxStamina;
+        }
+        Destroy(pickUp.CurrentObject);
+        pickUp.CurrentObject = null;
     }
 
     private void OnCasting()
@@ -67,7 +91,7 @@ public class StaminaSystem : MonoBehaviour
         while(Stamina < MaxStamina)
         {
             Stamina += ChargeRate / 10f;
-            if (Stamina > MaxStamina) Stamina = MaxStamina;
+            if (Stamina > MaxStamina) Stamina = MaxStamina; //not letting the stamina bar go beyond the maximum value
             StaminaBar.fillAmount = Stamina / MaxStamina;
             yield return new WaitForSeconds(.1f);
         }

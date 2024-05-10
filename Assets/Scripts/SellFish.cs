@@ -9,7 +9,6 @@ public class SellFish : MonoBehaviour
 {
     public bool playerInRange = false;
     public GameObject text;
-    public GameObject MoneyTextGameObject;
     public TMP_Text MoneyText;
     public PickUp pickUp;
     public int currentMoney = 0;
@@ -41,7 +40,6 @@ public class SellFish : MonoBehaviour
             {
                 return;
             }
-            //TextMeshPro MoneyText = MoneyTextGameObject.GetComponent<TextMeshPro>();
             if (!fishController.isCooked)
             {
                 currentMoney += fishController.FishWorth;

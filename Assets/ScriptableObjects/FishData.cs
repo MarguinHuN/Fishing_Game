@@ -11,4 +11,5 @@ public class FishData : ScriptableObject
     public int probability; //Chance to catch this fish in percentage %
     public GameObject fishModel;
     public int cookedWorth; //How much money it gives from the merchant in cooked form $
+    public float staminaRefill; //if cooked, gives back stamina when eaten
 }

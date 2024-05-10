@@ -8,6 +8,7 @@ public class FishController : MonoBehaviour
     public FishData fishData;
     public int FishWorth;
     public int CookedFishWorth;
+    public float CookedFishRefill;
     public bool isCooked;
     public CampFire campFire;
     public bool canCook = false;
@@ -16,6 +17,7 @@ public class FishController : MonoBehaviour
     {
         FishWorth = fishData.worth;
         CookedFishWorth = fishData.cookedWorth;
+        CookedFishRefill = fishData.staminaRefill;
     }
     
     void Update()
